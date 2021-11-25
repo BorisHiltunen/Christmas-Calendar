@@ -11,11 +11,11 @@ class ChristmasCalendar:
         self.locked_sound = pygame.mixer.Sound('locked_sound.wav')
         #self.hover_over = pygame.mixer.Sound('hover_over.wav')
 
-        #self.music = pygame.mixer.music.load('music.wav')
-        #pygame.mixer.music.play(loops=-1)
+        self.music = pygame.mixer.music.load('music.wav')
+        pygame.mixer.music.play(loops=-1)
 
-        self.height = 700
-        self.width = 600
+        self.height = 600
+        self.width = 416
 
         self.locked = False
 
@@ -89,50 +89,45 @@ class ChristmasCalendar:
     def download_pictures(self):
 
         self.background = pygame.image.load("background.png")
-        self.lid1 = pygame.image.load("lid1.png")
-        self.lid2 = pygame.image.load("lid2.png")
-        self.lid1_open = pygame.image.load("lid1_open.png")
-        self.lid2_open = pygame.image.load("lid2_open.png")
-        self.lid1_hover_over = pygame.image.load("lid1_hover_over.png")
-        self.lid2_hover_over = pygame.image.load("lid2_hover_over.png")
-        self.lid1_open_hover_over = pygame.image.load("lid1_open_hover_over.png")
-        self.lid2_open_hover_over = pygame.image.load("lid2_open_hover_over.png")
+        self.background = pygame.image.load("background2.png")
         self.mouse = pygame.image.load("mouse.png")
         self.not_time_yet = pygame.image.load("not_time_yet.png")
-        self.sounds_On = pygame.image.load("sounds_On.png")
-        self.sounds_Off = pygame.image.load("sounds_Off.png")
-        self.music_On = pygame.image.load("music_On.png")
-        self.music_Off = pygame.image.load("music_Off.png")
-        self.background2_lid1 = pygame.image.load("background2_lid1.png")
-        self.background2_lid2 = pygame.image.load("background2_lid2.png")
+        self.sound_button_on = pygame.image.load("sound_button_on.png")
+        #self.sound_button_off = pygame.image.load("sounds_Off.png")
+        self.music_button_on = pygame.image.load("music_button_on.png")
+        #self.music_button_off = pygame.image.load("music_Off.png")
 
-        #Will be used soon
-        #self.background2_lid3 = pygame.image.load("background2_lid3.png")
-        #self.background2_lid4 = pygame.image.load("background2_lid4.png")
-        #self.background2_lid5 = pygame.image.load("background2_lid5.png")
-        #self.background2_lid6 = pygame.image.load("background2_lid6.png")
-        #self.background2_lid7 = pygame.image.load("background2_lid7.png")
-        #self.background2_lid8 = pygame.image.load("background2_lid8.png")
-        #self.background2_lid9 = pygame.image.load("background2_lid9.png")
-        #self.background2_lid10 = pygame.image.load("background2_lid10.png")
-        #self.background2_lid11 = pygame.image.load("background2_lid11.png")
-        #self.background2_lid12 = pygame.image.load("background2_lid12.png")
-        #self.background2_lid13 = pygame.image.load("background2_lid13.png")
-        #self.background2_lid14 = pygame.image.load("background2_lid14.png")
-        #self.background2_lid15 = pygame.image.load("background2_lid15.png")
-        #self.background2_lid16 = pygame.image.load("background2_lid16.png")
-        #self.background2_lid17 = pygame.image.load("background2_lid17.png")
-        #self.background2_lid18 = pygame.image.load("background2_lid18.png")
-        #self.background2_lid19 = pygame.image.load("background2_lid19.png")
-        #self.background2_lid20 = pygame.image.load("background2_lid20.png")
-        #self.background2_lid21 = pygame.image.load("background2_lid21.png")
-        #self.background2_lid22 = pygame.image.load("background2_lid22.png")
-        #self.background2_lid23 = pygame.image.load("background2_lid23.png")
-        #self.background2_lid24 = pygame.image.load("background2_lid24.png")
+        self.sound_button_on_hover_over = pygame.image.load("sound_button_on_hover_over.png")
+        #self.sound_button_off_hover_over = pygame.image.load("sounds_Off_hover_over.png")
+        self.music_button_on_hover_over = pygame.image.load("music_button_on_hover_over.png")
+        #self.music_button_off_hover_over = pygame.image.load("music_Off_hover_over.png")
+        self.background_real_cubes_lid1 = pygame.image.load("background_real_cubes_lid1.png")
+        self.background_real_cubes_lid2 = pygame.image.load("background_real_cubes_lid2.png")
+        self.background_real_cubes_lid3 = pygame.image.load("background_real_cubes_lid3.png")
+        self.background_real_cubes_lid4 = pygame.image.load("background_real_cubes_lid4.png")
+        #self.background_real_cubes_lid5 = pygame.image.load("background_real_cubes_lid5.png")
+        #self.background_real_cubes_lid6 = pygame.image.load("background_real_cubes_lid6.png")
+        #self.background_real_cubes_lid7 = pygame.image.load("background_real_cubes_lid7.png")
+        #self.background_real_cubes_lid8 = pygame.image.load("background_real_cubes_lid8.png")
+        #self.background_real_cubes_lid9 = pygame.image.load("background_real_cubes_lid9.png")
+        #self.background_real_cubes_lid10 = pygame.image.load("background_real_cubes_lid10.png")
+        #self.background_real_cubes_lid11 = pygame.image.load("background_real_cubes_lid11.png")
+        #self.background_real_cubes_lid12 = pygame.image.load("background_real_cubes_lid12.png")
+        #self.background_real_cubes_lid13 = pygame.image.load("background_real_cubes_lid13.png")
+        #self.background_real_cubes_lid14 = pygame.image.load("background_real_cubes_lid14.png")
+        #self.background_real_cubes_lid15 = pygame.image.load("background_real_cubes_lid15.png")
+        #self.background_real_cubes_lid16 = pygame.image.load("background_real_cubes_lid16.png")
+        #self.background_real_cubes_lid17 = pygame.image.load("background_real_cubes_lid17.png")
+        #elf.background_real_cubes_lid18 = pygame.image.load("background_real_cubes_lid18.png")
+        #self.background_real_cubes_lid19 = pygame.image.load("background_real_cubes_lid19.png")
+        #self.background_real_cubes_lid20 = pygame.image.load("background_real_cubes_lid20.png")
+        #elf.background_real_cubes_lid21 = pygame.image.load("background_real_cubes_lid21.png")
+        #self.background_real_cubes_lid22 = pygame.image.load("background_real_cubes_lid22.png")
+        #self.background_real_cubes_lid23 = pygame.image.load("background_real_cubes_lid23.png")
+        #self.background_real_cubes_lid24 = pygame.image.load("background_real_cubes_lid24.png")
 
-        self.background2_lid1_hover_over = pygame.image.load("background2_lid1_hover_over.png")
-        self.background2_lid2_hover_over = pygame.image.load("background2_lid2_hover_over.png")
-
+        #self.background2_lid1_hover_over = pygame.image.load("background2_lid1_hover_over.png")
+        #self.background2_lid2_hover_over = pygame.image.load("background2_lid2_hover_over.png")
         #self.background2_lid3_hover_over = pygame.image.load("background2_lid3_hover_over.png")
         #self.background2_lid4_hover_over = pygame.image.load("background2_lid4_hover_over.png")
         #self.background2_lid5_hover_over = pygame.image.load("background2_lid5_hover_over.png")
@@ -168,36 +163,53 @@ class ChristmasCalendar:
 
         #Testing
         #Sound button
-        self.sound_button_x = 0 >= self.x-self.background2_lid1.get_width() and 0 <= self.x+self.background2_lid1.get_width()
-        self.sound_button_y = 0 >= self.y-self.background2_lid1.get_height() and 0 <= self.y+self.background2_lid1.get_height()
+        self.sound_button_x = 224 >= self.x-self.sound_button_on.get_width() and 309 <= self.x+self.sound_button_on.get_width()
+        self.sound_button_y = 510 >= self.y-self.sound_button_on.get_height() and 595 <= self.y+self.sound_button_on.get_height()
         if self.sound_button_x and self.sound_button_y:
-            self.sound_button = self.display.blit(self.background2_lid1_hover_over, (550, 0))
+
+            #It maybe needed to edit this?
+            if self.musicOn == True:
+                self.sound_button = self.display.blit(self.sound_button_on_hover_over, (224, 510))
+            else:
+                self.sound_button = self.display.blit(self.sound_button_on_hover_over, (224, 510))
+
             if self.buttonDown == True:
                 if self.soundsOn == True:
                     pygame.mixer.pause()
+                    self.soundOn = False
                 else:
                     pygame.mixer.unpause()
+                    self.soundOn = True
         else:
-            self.sound_button = self.display.blit(self.background2_lid1, (550, 0))
+            if self.musicOn == True:
+                self.sound_button = self.display.blit(self.sound_button_on, (224, 510))
+            else:
+                self.sound_button = self.display.blit(self.sound_button_on, (224, 510))
 
         #Music button
-        self.music_button_x = 0 >= self.x-self.music_On.get_width() and 0 <= self.x+self.music_On.get_width()
-        self.music_button_y = 0 >= self.y-self.music_On.get_height() and 0 <= self.y+self.music_On.get_height()
+        self.music_button_x = 324 >= self.x-self.music_button_on.get_width() and 409 <= self.x+self.music_button_on.get_width()
+        self.music_button_y = 510 >= self.y-self.music_button_on.get_height() and 595 <= self.y+self.music_button_on.get_height()
         if self.music_button_x and self.music_button_y:
+
+            #It maybe needed to edit this?
             if self.musicOn == True:
-                self.music_button = self.display.blit(self.musicOn, (550, 0))
+                self.music_button = self.display.blit(self.music_button_on_hover_over, (324, 510))
             else:
-                self.music_button = self.display.blit(self.musicOff, (550, 0))
+                self.music_button = self.display.blit(self.music_button_on_hover_over, (324, 510))
+
             if self.buttonDown == True:
+                print(self.musicOn)
                 if self.musicOn == True:
                     pygame.mixer.music.pause()
+                    self.musicOn = False
                 else:
                     pygame.mixer.music.unpause()
+                    self.musicOn = True
         else:
             if self.musicOn == True:
-                self.music_button = self.display.blit(self.music_On, (550, 0))
+                self.music_button = self.display.blit(self.music_button_on, (324, 510))
             else:
-                self.music_button = self.display.blit(self.music_Off, (550, 0))
+                self.music_button = self.display.blit(self.music_button_on, (324, 510))
 
 
 
@@ -205,8 +217,8 @@ class ChristmasCalendar:
 
         #Testing
         #First lid
-        self.lid1_x = 0 >= self.x-self.background2_lid1.get_width() and 0 <= self.x+self.background2_lid1.get_width()
-        self.lid1_y = 0 >= self.y-self.background2_lid1.get_height() and 0 <= self.y+self.background2_lid1.get_height()
+        self.lid1_x = 0 >= self.x-self.background_real_cubes_lid1.get_width() and 0 <= self.x+self.background_real_cubes_lid1.get_width()
+        self.lid1_y = 0 >= self.y-self.background_real_cubes_lid1.get_height() and 0 <= self.y+self.background_real_cubes_lid1.get_height()
         if self.opened1 == True:
             if self.lid1_x and self.lid1_y:
                 self.lid_1 = None
@@ -214,13 +226,18 @@ class ChristmasCalendar:
                 self.lid_1 = None
         else:
             if self.lid1_x and self.lid1_y:
-                self.lid_1 = self.display.blit(self.background2_lid1_hover_over, (0, 0))
+                self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                 if self.buttonDown == True:
                     #if self.what_time_is_it() == "1.12.2021":
                     #<Date>
-                    if self.what_time_is_it() == "21.11.2021":
+                    if self.what_time_is_it() == "25.11.2021":
                         #Here will be a question
                         #Think how would be the best way to implement the questions
+                        #font = pg.font.Font(None, 32)
+                        #input_box = pg.Rect(100, 100, 140, 32)
+                        #text = ''
+
+
                         if self.opened1 == False:
                             self.opening_sound.play()
                             self.opened1 = True
@@ -232,19 +249,19 @@ class ChristmasCalendar:
                             self.sound_lock1 = True
                         #For testing
                         print(self.what_time_is_it())
-                        self.lid_1 = self.display.blit(self.background2_lid1_hover_over, (0, 0))
+                        self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                         self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
                 else:
                     self.sound_lock1 = False
             else:
-                self.lid_1 = self.display.blit(self.background2_lid1, (0, 0))
+                self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                 #Delete this?
                 self.is_it_time = None
 
         #Second lid
         #So pretty much X goes 85 over and y 50
-        self.lid2_x = 150 >= self.x-self.background2_lid2.get_width() and 285 <= self.x+self.background2_lid2.get_width()
-        self.lid2_y = 0 >= self.y-self.background2_lid2.get_height() and 0 <= self.y+self.background2_lid2.get_height()
+        self.lid2_x = 104 >= self.x-self.background_real_cubes_lid2.get_width() and 189 <= self.x+self.background_real_cubes_lid2.get_width()
+        self.lid2_y = 0 >= self.y-self.background_real_cubes_lid2.get_height() and 0 <= self.y+self.background_real_cubes_lid2.get_height()
         if self.opened2 == True:
             if self.lid2_x and self.lid2_y:
                 self.lid_2 = None
@@ -252,7 +269,7 @@ class ChristmasCalendar:
                 self.lid_2 = None
         else:
             if self.lid2_x and self.lid2_y:
-                self.lid_2 = self.display.blit(self.background2_lid2_hover_over, (150, 0))
+                self.lid_2 = self.display.blit(self.background_real_cubes_lid2, (104, 0))
                 if self.buttonDown == True:
                     #if self.what_time_is_it() == "1.12.2021":
                     #<Date>
@@ -270,17 +287,91 @@ class ChristmasCalendar:
                             self.sound_lock1 = True
                         #For testing
                         print(self.what_time_is_it())
-                        self.lid_2 = self.display.blit(self.background2_lid2_hover_over, (150, 0))
-                        self.is_it_time = self.display.blit(self.not_time_yet, (150, 0))
+                        self.lid_2 = self.display.blit(self.background_real_cubes_lid2, (104, 0))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (104, 0))
                 else:
                     self.sound_lock1 = False
             else:
-                self.lid_2  = self.display.blit(self.background2_lid2, (150, 0))
+                self.lid_2  = self.display.blit(self.background_real_cubes_lid2, (104, 0))
                 #Delete this?
                 self.is_it_time = None
 
         #Third lid
+        #So pretty much X goes 85 over and y 50
+        self.lid3_x = 208 >= self.x-self.background_real_cubes_lid3.get_width() and 293 <= self.x+self.background_real_cubes_lid3.get_width()
+        self.lid3_y = 0 >= self.y-self.background_real_cubes_lid3.get_height() and 0 <= self.y+self.background_real_cubes_lid3.get_height()
+        if self.opened2 == True:
+            if self.lid3_x and self.lid3_y:
+                self.lid_3 = None
+            else:
+                self.lid_3 = None
+        else:
+            if self.lid3_x and self.lid3_y:
+                self.lid_3 = self.display.blit(self.background_real_cubes_lid3, (208, 0))
+                if self.buttonDown == True:
+                    #if self.what_time_is_it() == "1.12.2021":
+                    #<Date>
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened3 == False:
+                            self.opening_sound.play()
+                            self.opened3 = True
+                            self.lid_3 = None
+                            self.opened3 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_3 = self.display.blit(self.background_real_cubes_lid3, (208, 0))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 0))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid3, (208, 0))
+                #Delete this?
+                self.is_it_time = None
+
         #Fourth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 0 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 0))
+                if self.buttonDown == True:
+                    #if self.what_time_is_it() == "1.12.2021":
+                    #<Date>
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 0))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 0))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 0))
+                #Delete this?
+                self.is_it_time = None
+
         #Fifth lid
         #Sixth lid
         #Seventh lid
@@ -322,7 +413,6 @@ class ChristmasCalendar:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.buttonDown = True
                 print("You pushed the button", event.button, "At the", event.pos)
- 
             if event.type == pygame.MOUSEBUTTONUP:
                 self.buttonDown = False
                 print("You stopped pushing the button", event.button, "At the", event.pos)
