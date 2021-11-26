@@ -247,7 +247,6 @@ class ChristmasCalendar:
             if self.lid1_x and self.lid1_y:
                 self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                 if self.buttonDown == True:
-<<<<<<< HEAD
                     #if self.what_time_is_it() == "1.12.2021":
                     #<Date>
                     if self.what_time_is_it() == "26.11.2021":
@@ -271,7 +270,6 @@ class ChristmasCalendar:
                         print(self.what_time_is_it())
                         self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                         self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
-=======
                     print(self.locked)
                     if self.locked == False:
                         self.locked = True
@@ -289,7 +287,6 @@ class ChristmasCalendar:
                             print(self.what_time_is_it())
                             self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                             self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
->>>>>>> bb700130ebdd6b54a9292dbfe7c2f7cbc71abe8b
                 else:
                     self.sound_lock1 = False
                     self.locked = False
@@ -313,7 +310,7 @@ class ChristmasCalendar:
                 if self.buttonDown == True:
                     if self.locked == False:
                         self.locked = True
-                        if self.what_time_is_it() == "25.11.2021":
+                        if self.what_time_is_it() == "26.11.2021":
                             #Here will be a question
                             #Think how would be the best way to implement the questions
                             if self.opened2 == False:
