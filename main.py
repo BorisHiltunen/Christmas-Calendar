@@ -230,7 +230,7 @@ class ChristmasCalendar:
                 if self.buttonDown == True:
                     #if self.what_time_is_it() == "1.12.2021":
                     #<Date>
-                    if self.what_time_is_it() == "25.11.2021":
+                    if self.what_time_is_it() == "26.11.2021":
                         #Here will be a question
                         #Think how would be the best way to implement the questions
                         #font = pg.font.Font(None, 32)
