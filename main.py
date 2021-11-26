@@ -247,16 +247,9 @@ class ChristmasCalendar:
             if self.lid1_x and self.lid1_y:
                 self.lid_1 = self.display.blit(self.background_real_cubes_lid1_hover_over, (0, 0))
                 if self.buttonDown == True:
-                    #if self.what_time_is_it() == "1.12.2021":
-                    #<Date>
                     if self.what_time_is_it() == "26.11.2021":
                         #Here will be a question
                         #Think how would be the best way to implement the questions
-                        #font = pg.font.Font(None, 32)
-                        #input_box = pg.Rect(100, 100, 140, 32)
-                        #text = ''
-
-
                         if self.opened1 == False:
                             self.opening_sound.play()
                             self.opened1 = True
@@ -270,23 +263,6 @@ class ChristmasCalendar:
                         print(self.what_time_is_it())
                         self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                         self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
-                    print(self.locked)
-                    if self.locked == False:
-                        self.locked = True
-                        if self.what_time_is_it() == "26.11.2021":
-                            if self.opened1 == False:
-                                self.opening_sound.play()
-                                self.opened1 = True
-                                self.lid_1 = None
-                                self.opened1 = True
-                        else:
-                            if self.sound_lock1 == False:
-                                self.locked_sound.play()
-                                self.sound_lock1 = True
-                            #For testing
-                            print(self.what_time_is_it())
-                            self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
-                            self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
                 else:
                     self.sound_lock1 = False
                     self.locked = False
@@ -310,7 +286,7 @@ class ChristmasCalendar:
                 if self.buttonDown == True:
                     if self.locked == False:
                         self.locked = True
-                        if self.what_time_is_it() == "26.11.2021":
+                        if self.what_time_is_it() == "27.11.2021":
                             #Here will be a question
                             #Think how would be the best way to implement the questions
                             if self.opened2 == False:
@@ -1100,7 +1076,7 @@ class ChristmasCalendar:
             else:
                 self.lid_24 = None
         else:
-            if self.lid24_x and self.lid4_y:
+            if self.lid24_x and self.lid24_y:
                 self.lid_24 = self.display.blit(self.background_real_cubes_lid24, (312, 425))
                 if self.buttonDown == True:
                     if self.what_time_is_it() == "21.11.2021":
