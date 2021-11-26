@@ -126,8 +126,8 @@ class ChristmasCalendar:
         self.background_real_cubes_lid23 = pygame.image.load("background_real_cubes_lid23.png")
         self.background_real_cubes_lid24 = pygame.image.load("background_real_cubes_lid24.png")
 
-        #self.background2_lid1_hover_over = pygame.image.load("background2_lid1_hover_over.png")
-        #self.background2_lid2_hover_over = pygame.image.load("background2_lid2_hover_over.png")
+        self.background_real_cubes_lid1_hover_over = pygame.image.load("background_real_cubes_lid1_hover_over.png")
+        self.background2_real_cubes_lid2_hover_over = pygame.image.load("background_real_cubes_lid2_hover_over.png")
         #self.background2_lid3_hover_over = pygame.image.load("background2_lid3_hover_over.png")
         #self.background2_lid4_hover_over = pygame.image.load("background2_lid4_hover_over.png")
         #self.background2_lid5_hover_over = pygame.image.load("background2_lid5_hover_over.png")
@@ -174,12 +174,27 @@ class ChristmasCalendar:
                 self.sound_button = self.display.blit(self.sound_button_on_hover_over, (224, 510))
 
             if self.buttonDown == True:
-                if self.soundsOn == True:
-                    pygame.mixer.pause()
-                    self.soundOn = False
-                else:
-                    pygame.mixer.unpause()
-                    self.soundOn = True
+                print(self.soundsOn)
+                if self.locked == False:
+                    self.locked = True
+                    if self.soundsOn == True:
+                        #check how to darken and brighten an image
+                        #dark = pg.Surface(self.sound_button_on.get_size()).convert_alpha()
+                        #dark.fill((0, 0, 0, darken_percent*255))
+                        #self.sound_button_on.blit(dark, (0, 0))
+                        print("toimiiko")
+
+                        pygame.mixer.pause()
+                        self.soundsOn = False
+                    else:
+                        self.sound_button_on.fill((100, 100, 100), special_flags=pygame.BLEND_RGB_ADD)
+                        print("toimiiko2")
+                        
+                        pygame.mixer.unpause()
+                        self.soundsOn = True
+            else:
+                self.locked = False
+
         else:
             if self.musicOn == True:
                 self.sound_button = self.display.blit(self.sound_button_on, (224, 510))
@@ -199,12 +214,16 @@ class ChristmasCalendar:
 
             if self.buttonDown == True:
                 print(self.musicOn)
-                if self.musicOn == True:
-                    pygame.mixer.music.pause()
-                    self.musicOn = False
-                else:
-                    pygame.mixer.music.unpause()
-                    self.musicOn = True
+                if self.locked == False:
+                    self.locked = True
+                    if self.musicOn == True:
+                        pygame.mixer.music.pause()
+                        self.musicOn = False
+                    else:
+                        pygame.mixer.music.unpause()
+                        self.musicOn = True
+            else:
+                self.locked = False
         else:
             if self.musicOn == True:
                 self.music_button = self.display.blit(self.music_button_on, (324, 510))
@@ -228,6 +247,7 @@ class ChristmasCalendar:
             if self.lid1_x and self.lid1_y:
                 self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                 if self.buttonDown == True:
+<<<<<<< HEAD
                     #if self.what_time_is_it() == "1.12.2021":
                     #<Date>
                     if self.what_time_is_it() == "26.11.2021":
@@ -251,8 +271,28 @@ class ChristmasCalendar:
                         print(self.what_time_is_it())
                         self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                         self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
+=======
+                    print(self.locked)
+                    if self.locked == False:
+                        self.locked = True
+                        if self.what_time_is_it() == "26.11.2021":
+                            if self.opened1 == False:
+                                self.opening_sound.play()
+                                self.opened1 = True
+                                self.lid_1 = None
+                                self.opened1 = True
+                        else:
+                            if self.sound_lock1 == False:
+                                self.locked_sound.play()
+                                self.sound_lock1 = True
+                            #For testing
+                            print(self.what_time_is_it())
+                            self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
+                            self.is_it_time = self.display.blit(self.not_time_yet, (0, 0))
+>>>>>>> bb700130ebdd6b54a9292dbfe7c2f7cbc71abe8b
                 else:
                     self.sound_lock1 = False
+                    self.locked = False
             else:
                 self.lid_1 = self.display.blit(self.background_real_cubes_lid1, (0, 0))
                 #Delete this?
@@ -271,26 +311,27 @@ class ChristmasCalendar:
             if self.lid2_x and self.lid2_y:
                 self.lid_2 = self.display.blit(self.background_real_cubes_lid2, (104, 0))
                 if self.buttonDown == True:
-                    #if self.what_time_is_it() == "1.12.2021":
-                    #<Date>
-                    if self.what_time_is_it() == "21.11.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
-                        if self.opened2 == False:
-                            self.opening_sound.play()
-                            self.opened2 = True
-                            self.lid_2 = None
-                            self.opened2 = True
-                    else:
-                        if self.sound_lock1 == False:
-                            self.locked_sound.play()
-                            self.sound_lock1 = True
-                        #For testing
-                        print(self.what_time_is_it())
-                        self.lid_2 = self.display.blit(self.background_real_cubes_lid2, (104, 0))
-                        self.is_it_time = self.display.blit(self.not_time_yet, (104, 0))
+                    if self.locked == False:
+                        self.locked = True
+                        if self.what_time_is_it() == "25.11.2021":
+                            #Here will be a question
+                            #Think how would be the best way to implement the questions
+                            if self.opened2 == False:
+                                self.opening_sound.play()
+                                self.opened2 = True
+                                self.lid_2 = None
+                                self.opened2 = True
+                        else:
+                            if self.sound_lock1 == False:
+                                self.locked_sound.play()
+                                self.sound_lock1 = True
+                            #For testing
+                            print(self.what_time_is_it())
+                            self.lid_2 = self.display.blit(self.background_real_cubes_lid2, (104, 0))
+                            self.is_it_time = self.display.blit(self.not_time_yet, (104, 0))
                 else:
                     self.sound_lock1 = False
+                    self.locked = False
             else:
                 self.lid_2  = self.display.blit(self.background_real_cubes_lid2, (104, 0))
                 #Delete this?
@@ -309,8 +350,6 @@ class ChristmasCalendar:
             if self.lid3_x and self.lid3_y:
                 self.lid_3 = self.display.blit(self.background_real_cubes_lid3, (208, 0))
                 if self.buttonDown == True:
-                    #if self.what_time_is_it() == "1.12.2021":
-                    #<Date>
                     if self.what_time_is_it() == "21.11.2021":
                         #Here will be a question
                         #Think how would be the best way to implement the questions
@@ -347,8 +386,6 @@ class ChristmasCalendar:
             if self.lid4_x and self.lid4_y:
                 self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 0))
                 if self.buttonDown == True:
-                    #if self.what_time_is_it() == "1.12.2021":
-                    #<Date>
                     if self.what_time_is_it() == "21.11.2021":
                         #Here will be a question
                         #Think how would be the best way to implement the questions
@@ -373,25 +410,724 @@ class ChristmasCalendar:
                 self.is_it_time = None
 
         #Fifth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 0 >= self.x-self.background_real_cubes_lid4.get_width() and 85 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 85 >= self.y-self.background_real_cubes_lid4.get_height() and 170 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 85))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 85))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (0, 85))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (0, 85))
+                #Delete this?
+                self.is_it_time = None
+
         #Sixth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 104 >= self.x-self.background_real_cubes_lid4.get_width() and 189 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 85 >= self.y-self.background_real_cubes_lid4.get_height() and 170 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 85))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 85))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (104, 85))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (104, 85))
+                #Delete this?
+                self.is_it_time = None
+
         #Seventh lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 208 >= self.x-self.background_real_cubes_lid4.get_width() and 293 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 85 >= self.y-self.background_real_cubes_lid4.get_height() and 85 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 85))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 85))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 85))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (208, 85))
+                #Delete this?
+                self.is_it_time = None
+
         #Eighth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 0 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 85 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 85))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 85))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 85))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 85))
+                #Delete this?
+                self.is_it_time = None
+
         #Ninth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 0 >= self.x-self.background_real_cubes_lid4.get_width() and 85 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 170 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 170))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 170))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (0, 170))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (0, 170))
+                #Delete this?
+                self.is_it_time = None
+
         #Tenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 104 >= self.x-self.background_real_cubes_lid4.get_width() and 0 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 170 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 170))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 170))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (104, 170))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (104, 170))
+                #Delete this?
+                self.is_it_time = None
+
         #Eleventh lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 208 >= self.x-self.background_real_cubes_lid4.get_width() and 0 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 170 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 170))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                #Delete this?
+                self.is_it_time = None
+
         #Twelfth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 208 >= self.x-self.background_real_cubes_lid4.get_width() and 0 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 170 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 170))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (208, 170))
+                #Delete this?
+                self.is_it_time = None
+
         #Thirteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 208 >= self.x-self.background_real_cubes_lid4.get_width() and 0 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Fourteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Fifteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 0 >= self.x-self.background_real_cubes_lid4.get_width() and 85 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (0, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (0, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (0, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Sixteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 104 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (104, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (104, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (104, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Seventeenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 208 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (208, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (208, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Eighteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Nineteenth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Twentieth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 255 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 255))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 255))
+                #Delete this?
+                self.is_it_time = None
+
         #Twenty-first lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 340 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 340))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                #Delete this?
+                self.is_it_time = None
+
         #Twenty-second lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 340 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 340))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                #Delete this?
+                self.is_it_time = None
+
         #Twenty-third lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 340 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 340))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                #Delete this?
+                self.is_it_time = None
+
         #Twenty-fourth lid
+        #So pretty much X goes 85 over and y 50
+        self.lid4_x = 312 >= self.x-self.background_real_cubes_lid4.get_width() and 393 <= self.x+self.background_real_cubes_lid4.get_width()
+        self.lid4_y = 340 >= self.y-self.background_real_cubes_lid4.get_height() and 0 <= self.y+self.background_real_cubes_lid4.get_height()
+        if self.opened2 == True:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = None
+            else:
+                self.lid_4 = None
+        else:
+            if self.lid4_x and self.lid4_y:
+                self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                if self.buttonDown == True:
+                    if self.what_time_is_it() == "21.11.2021":
+                        #Here will be a question
+                        #Think how would be the best way to implement the questions
+                        if self.opened4 == False:
+                            self.opening_sound.play()
+                            self.opened4 = True
+                            self.lid_4 = None
+                            self.opened4 = True
+                    else:
+                        if self.sound_lock1 == False:
+                            self.locked_sound.play()
+                            self.sound_lock1 = True
+                        #For testing
+                        print(self.what_time_is_it())
+                        self.lid_4 = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                        self.is_it_time = self.display.blit(self.not_time_yet, (312, 340))
+                else:
+                    self.sound_lock1 = False
+            else:
+                self.lid_3  = self.display.blit(self.background_real_cubes_lid4, (312, 340))
+                #Delete this?
+                self.is_it_time = None
 
     def loop(self):
         clock = pygame.time.Clock()
