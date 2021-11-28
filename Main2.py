@@ -1128,8 +1128,6 @@ class ChristmasCalendar:
                 self.x = event.pos[0]-self.mouse.get_width()/2
                 self.y = event.pos[1]-self.mouse.get_height()/2
 
-                self.display.blit(self.mouse, (self.x, self.y))
-                pygame.display.flip()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.buttonDown = True
                 print("You pushed the button", event.button, "At the", event.pos)
