@@ -1,7 +1,10 @@
+#Importing necessary modules
 import pygame
 import datetime
 
 class ChristmasCalendar:
+
+    #Accessing and initializing necessary funktions and attributes
     def __init__(self):
         pygame.init()
 
@@ -85,6 +88,7 @@ class ChristmasCalendar:
  
         self.loop()
 
+    #Downloading pictures that will be used in the calendar
     def download_pictures(self):
 
         self.background = pygame.image.load("background.png")
@@ -151,6 +155,7 @@ class ChristmasCalendar:
         self.background_real_cubes_lid23_hover_over = pygame.image.load("background_real_cubes_lid23_hover_over.png")
         self.background_real_cubes_lid24_hover_over = pygame.image.load("background_real_cubes_lid24_hover_over.png")
 
+    #Funktion that returns the date in the correct form
     def what_time_is_it(self):
         time = datetime.datetime.now()
         day = time.day
@@ -158,6 +163,7 @@ class ChristmasCalendar:
         year = time.year
         return f"{day}.{month}.{year}"
 
+    #Funktion that is responsible for making the sound and music buttons work as intended
     def sound_management(self):
 
         #Testing
@@ -216,8 +222,7 @@ class ChristmasCalendar:
             else:
                 self.music_button = self.display.blit(self.music_button_off, (324, 510))
 
-
-
+    #Funktion that is responsible for making the calendar's lids work as intended
     def lids(self):
 
         #Lids Y
@@ -1113,6 +1118,8 @@ class ChristmasCalendar:
                 #Delete this?
                 self.is_it_time = None
 
+    #Funktion that loops over and over
+    #Thus making the use of the calendar feel comfortable
     def loop(self):
         clock = pygame.time.Clock()
 
@@ -1121,6 +1128,7 @@ class ChristmasCalendar:
             self.analyse_events()
             clock.tick(60)
 
+    #Funktion that is responsible for making the game's mouse work as intended
     def analyse_events(self):
 
         for event in pygame.event.get():
@@ -1137,6 +1145,7 @@ class ChristmasCalendar:
             if event.type == pygame.QUIT:
                 exit()
 
+    #Funktion that basically draws the calendar
     def draw_the_calendar(self):
  
         self.display.fill((0,100,100))
@@ -1151,5 +1160,6 @@ class ChristmasCalendar:
  
         pygame.display.flip()
 
+#Used to execute code if the file is run directly
 if __name__ == "__main__":
     ChristmasCalendar()
