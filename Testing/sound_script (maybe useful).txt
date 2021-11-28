@@ -1,0 +1,50 @@
+        #Testing
+        #Sound button
+        if self.soundsOn == True:
+            self.sound_button_x = 224 >= self.x-self.sound_button_off.get_width() and 309 <= self.x+self.sound_button_off.get_width()
+            self.sound_button_y = 510 >= self.y-self.sound_button_off.get_height() and 595 <= self.y+self.sound_button_off.get_height()
+            if self.sound_button_x and self.sound_button_y:
+                self.sound_button = self.display.blit(self.sound_button_on_hover_over, (224, 510))
+                if self.buttonDown == True:
+                    if self.locked == False:
+                        self.locked = True
+                        if self.soundsOn == True:
+                            self.sound_button = self.display.blit(self.sound_button_off, (224, 510))
+                            pygame.mixer.pause()
+                            self.soundsOn = False
+                        else:
+                            pygame.mixer.unpause()
+                            self.soundsOn = True
+                else:
+                    self.locked = False
+
+            else:
+                if self.soundsOn == True:
+                    self.sound_button = self.display.blit(self.sound_button_on, (224, 510))
+                else:
+                    self.sound_button = self.display.blit(self.sound_button_off, (224, 510))
+        else:
+            self.sound_button_x = 224 >= self.x-self.sound_button_off.get_width() and 309 <= self.x+self.sound_button_off.get_width()
+            self.sound_button_y = 510 >= self.y-self.sound_button_off.get_height() and 595 <= self.y+self.sound_button_off.get_height()
+            if self.sound_button_x and self.sound_button_y:
+                self.sound_button = self.display.blit(self.sound_button_off_hover_over, (224, 510))
+
+                if self.buttonDown == True:
+                    print(self.soundsOn)
+                    if self.locked == False:
+                        self.locked = True
+                        if self.soundsOn == True:
+                            #self.sound_button_on = self.display.blit(self.sound_button_off, (224, 510))
+                            pygame.mixer.pause()
+                            self.soundsOn = False
+                        else:
+                            pygame.mixer.unpause()
+                            self.soundsOn = True
+                else:
+                    self.locked = False
+
+            else:
+                if self.soundsOn == True:
+                    self.sound_button = self.display.blit(self.sound_button_on, (224, 510))
+                else:
+                    self.sound_button = self.display.blit(self.sound_button_off, (224, 510))
