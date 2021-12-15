@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/BorisHiltunen/ChristmasCalendar/picture_of_the_game.png"/>
+</p>
+
 # ChristmasCalendar
 
 ## Description
