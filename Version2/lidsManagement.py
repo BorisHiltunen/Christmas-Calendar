@@ -1,4 +1,4 @@
-from Main2 import Main2
+from main import main
 
 #Funktion that is responsible for making the calendar's lids work as intended
 def lids(self):

@@ -1,5 +1,5 @@
 import pygame
-from .Main2 import Main2
+from .main import main
     
 #Accessing and initializing necessary funktions and attributes
 def create_calendar(self):
@@ -83,4 +83,4 @@ def create_calendar(self):
  
     pygame.display.set_caption("ChristmasCalendar")
  
-    Main2.loop()
+    main.loop()

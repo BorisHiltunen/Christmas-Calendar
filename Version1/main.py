@@ -91,7 +91,6 @@ class ChristmasCalendar:
     #Downloading pictures that will be used in the calendar
     def download_pictures(self):
 
-        self.background = pygame.image.load("background.png")
         self.background = pygame.image.load("background2.png")
         self.mouse = pygame.image.load("mouse.png")
         self.not_time_yet = pygame.image.load("not_time_yet.png")
