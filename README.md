@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/BorisHiltunen/ChristmasCalendar/picture_of_the_game.png"/>
-</p>
-
 # ChristmasCalendar
 
 ## Description
@@ -17,3 +13,10 @@ ChristmasCalendar is a Python project that uses Pygame library. Like the name su
 
 ## Setup
 - pip install -r Requirements.txt
+
+## Demonstration
+
+
+<p align="center">
+  <img src="https://github.com/BorisHiltunen/ChristmasCalendar/raw/main/picture_of_the_game.png"/>
+</p>
