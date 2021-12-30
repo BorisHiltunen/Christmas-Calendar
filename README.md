@@ -1,4 +1,4 @@
-# ChristmasCalendar
+# Christmas Calendar
 
 ## Description
 ChristmasCalendar is a Python project that uses Pygame library. Like the name suggests ChristmasCalendar is a calendar app that has openable lids that can be opened on the correct day. The app also contains beautiful art and sentimental music.
