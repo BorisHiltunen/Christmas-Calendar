@@ -41,7 +41,7 @@ image_list = [
     (images["lid24.png"], images["lid24_hover_over.png"])
 ]
 
-# lids list contains every lid's index, coordinates, date,
+# lids list contains every lid's images, coordinates, date,
 # string that tells whether lid is open or closed
 # and string that tells whether the sound is available or not.
 lids = [
