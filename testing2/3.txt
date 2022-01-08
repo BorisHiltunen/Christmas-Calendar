@@ -1,4 +1,5 @@
 """main.py: Contains ChristmasCalendar class."""
+
 import datetime
 import pygame
 
@@ -304,17 +305,9 @@ class ChristmasCalendar:
             else:
                 self.music_button = self.display.blit(self.music_button_off, (324, 510))
 
-    def lids(self):
+    def lid_management(self):
         """Funktion that is responsible for making the calendar's lids work as intended."""
 
-        #Lids Y
-        #85, 170, 255, 340, 425, 510
-        #Lids X
-        #105, 209, 313, 416
-
-        #First lid
-        #X = -10 and +96
-        #Y = -10 +77
         self.lid1_x = -10 >= self.x-self.lid1.get_width() and 96 <= self.x+self.lid1.get_width()
         self.lid1_y = -10 >= self.y-self.lid1.get_height() and 77 <= self.y+self.lid1.get_height()
         if self.opened1:
@@ -326,15 +319,12 @@ class ChristmasCalendar:
             if self.lid1_x and self.lid1_y:
                 self.lid_1 = self.display.blit(self.lid1_hover_over, (0, 0))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "17.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "17.12.2021":
                         if self.opened1 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened1 = True
                             self.lid_1 = None
-                            self.opened1 = True
                     else:
                         if self.sound_lock1 is False:
                             if self.sounds_on:
@@ -362,15 +352,12 @@ class ChristmasCalendar:
             if self.lid2_x and self.lid2_y:
                 self.lid_2 = self.display.blit(self.lid2_hover_over, (105, 0))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "20.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "20.12.2021":
                         if self.opened2 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened2 = True
                             self.lid_2 = None
-                            self.opened2 = True
                     else:
                         if self.sound_lock2 is False:
                             if self.sounds_on:
@@ -398,15 +385,12 @@ class ChristmasCalendar:
             if self.lid3_x and self.lid3_y:
                 self.lid_3 = self.display.blit(self.lid3_hover_over, (209, 0))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "24.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "24.12.2021":
                         if self.opened3 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened3 = True
                             self.lid_3 = None
-                            self.opened3 = True
                     else:
                         if self.sound_lock3 is False:
                             if self.sounds_on:
@@ -434,15 +418,12 @@ class ChristmasCalendar:
             if self.lid4_x and self.lid4_y:
                 self.lid_4 = self.display.blit(self.lid4_hover_over, (313, 0))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "9.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "9.12.2021":
                         if self.opened4 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened4 = True
                             self.lid_4 = None
-                            self.opened4 = True
                     else:
                         if self.sound_lock4 is False:
                             if self.sounds_on:
@@ -470,15 +451,12 @@ class ChristmasCalendar:
             if self.lid5_x and self.lid5_y:
                 self.lid_5 = self.display.blit(self.lid5_hover_over, (0, 86))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "12.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "12.12.2021":
                         if self.opened5 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened5 = True
                             self.lid_5 = None
-                            self.opened5 = True
                     else:
                         if self.sound_lock5 is False:
                             if self.sounds_on:
@@ -506,15 +484,12 @@ class ChristmasCalendar:
             if self.lid6_x and self.lid6_y:
                 self.lid_6 = self.display.blit(self.lid6_hover_over, (105, 86))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "6.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "6.12.2021":
                         if self.opened6 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened6 = True
                             self.lid_6 = None
-                            self.opened6 = True
                     else:
                         if self.sound_lock6 is False:
                             if self.sounds_on:
@@ -542,15 +517,12 @@ class ChristmasCalendar:
             if self.lid7_x and self.lid7_y:
                 self.lid_7 = self.display.blit(self.lid7_hover_over, (209, 86))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "14.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "14.12.2021":
                         if self.opened7 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened7 = True
                             self.lid_7 = None
-                            self.opened7 = True
                     else:
                         if self.sound_lock7 is False:
                             if self.sounds_on:
@@ -578,15 +550,12 @@ class ChristmasCalendar:
             if self.lid8_x and self.lid8_y:
                 self.lid_8 = self.display.blit(self.lid8_hover_over, (313, 86))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "3.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "3.12.2021":
                         if self.opened8 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened8 = True
                             self.lid_8 = None
-                            self.opened8 = True
                     else:
                         if self.sound_lock8 is False:
                             if self.sounds_on:
@@ -614,15 +583,12 @@ class ChristmasCalendar:
             if self.lid9_x and self.lid9_y:
                 self.lid_9 = self.display.blit(self.lid9_hover_over, (0, 171))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "4.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "4.12.2021":
                         if self.opened9 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened9 = True
                             self.lid_9 = None
-                            self.opened9 = True
                     else:
                         if self.sound_lock9 is False:
                             if self.sounds_on:
@@ -650,15 +616,12 @@ class ChristmasCalendar:
             if self.lid10_x and self.lid10_y:
                 self.lid_10 = self.display.blit(self.lid10_hover_over, (105, 171))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "19.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "19.12.2021":
                         if self.opened10 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened10 = True
                             self.lid_10 = None
-                            self.opened10 = True
                     else:
                         if self.sound_lock10 is False:
                             if self.sounds_on:
@@ -686,15 +649,12 @@ class ChristmasCalendar:
             if self.lid11_x and self.lid11_y:
                 self.lid_11 = self.display.blit(self.lid11_hover_over, (209, 171))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "22.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "22.12.2021":
                         if self.opened11 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened11 = True
                             self.lid_11 = None
-                            self.opened11 = True
                     else:
                         if self.sound_lock11 is False:
                             if self.sounds_on:
@@ -722,15 +682,12 @@ class ChristmasCalendar:
             if self.lid12_x and self.lid12_y:
                 self.lid_12 = self.display.blit(self.lid12_hover_over, (313, 171))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "16.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "16.12.2021":
                         if self.opened12 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened12 = True
                             self.lid_12 = None
-                            self.opened12 = True
                     else:
                         if self.sound_lock12 is False:
                             if self.sounds_on:
@@ -758,15 +715,12 @@ class ChristmasCalendar:
             if self.lid13_x and self.lid13_y:
                 self.lid_13 = self.display.blit(self.lid13_hover_over, (0, 256))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "21.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "21.12.2021":
                         if self.opened13 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened13 = True
                             self.lid_13 = None
-                            self.opened13 = True
                     else:
                         if self.sound_lock13 is False:
                             if self.sounds_on:
@@ -794,15 +748,12 @@ class ChristmasCalendar:
             if self.lid14_x and self.lid14_y:
                 self.lid_14 = self.display.blit(self.lid14_hover_over, (105, 256))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "15.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "15.12.2021":
                         if self.opened14 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened14 = True
                             self.lid_14 = None
-                            self.opened14 = True
                     else:
                         if self.sound_lock14 is False:
                             if self.sounds_on:
@@ -830,15 +781,12 @@ class ChristmasCalendar:
             if self.lid15_x and self.lid15_y:
                 self.lid_15 = self.display.blit(self.lid15_hover_over, (209, 256))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "1.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "1.12.2021":
                         if self.opened15 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened15 = True
                             self.lid_15 = None
-                            self.opened15 = True
                     else:
                         if self.sound_lock15 is False:
                             if self.sounds_on:
@@ -866,15 +814,12 @@ class ChristmasCalendar:
             if self.lid16_x and self.lid16_y:
                 self.lid_16 = self.display.blit(self.lid16_hover_over, (313, 256))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "7.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "7.12.2021":
                         if self.opened16 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened16 = True
                             self.lid_16 = None
-                            self.opened16 = True
                     else:
                         if self.sound_lock16 is False:
                             if self.sounds_on:
@@ -902,15 +847,12 @@ class ChristmasCalendar:
             if self.lid17_x and self.lid17_y:
                 self.lid_17 = self.display.blit(self.lid17_hover_over, (0, 341))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "10.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "10.12.2021":
                         if self.opened17 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened17 = True
                             self.lid_17 = None
-                            self.opened17 = True
                     else:
                         if self.sound_lock17 is False:
                             if self.sounds_on:
@@ -938,15 +880,12 @@ class ChristmasCalendar:
             if self.lid18_x and self.lid18_y:
                 self.lid_18 = self.display.blit(self.lid18_hover_over, (105, 341))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "23.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "23.12.2021":
                         if self.opened18 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened18 = True
                             self.lid_18 = None
-                            self.opened18 = True
                     else:
                         if self.sound_lock18 is False:
                             if self.sounds_on:
@@ -974,15 +913,12 @@ class ChristmasCalendar:
             if self.lid19_x and self.lid19_y:
                 self.lid_19 = self.display.blit(self.lid19_hover_over, (209, 341))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "18.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "18.12.2021":
                         if self.opened19 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened19 = True
                             self.lid_19 = None
-                            self.opened19 = True
                     else:
                         if self.sound_lock19 is False:
                             if self.sounds_on:
@@ -1010,15 +946,12 @@ class ChristmasCalendar:
             if self.lid20_x and self.lid20_y:
                 self.lid_20 = self.display.blit(self.lid20_hover_over, (313, 341))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "11.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "11.12.2021":
                         if self.opened20 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened20 = True
                             self.lid_20 = None
-                            self.opened20 = True
                     else:
                         if self.sound_lock20 is False:
                             if self.sounds_on:
@@ -1046,15 +979,12 @@ class ChristmasCalendar:
             if self.lid21_x and self.lid21_y:
                 self.lid_21 = self.display.blit(self.lid21_hover_over, (0, 426))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "2.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "2.12.2021":
                         if self.opened21 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened21 = True
                             self.lid_21 = None
-                            self.opened21 = True
                     else:
                         if self.sound_lock21 is False:
                             if self.sounds_on:
@@ -1082,15 +1012,12 @@ class ChristmasCalendar:
             if self.lid22_x and self.lid22_y:
                 self.lid_22 = self.display.blit(self.lid22_hover_over, (105, 426))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "8.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "8.12.2021":
                         if self.opened22 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened22 = True
                             self.lid_22 = None
-                            self.opened22 = True
                     else:
                         if self.sound_lock22 is False:
                             if self.sounds_on:
@@ -1118,15 +1045,12 @@ class ChristmasCalendar:
             if self.lid23_x and self.lid23_y:
                 self.lid_23 = self.display.blit(self.lid23_hover_over, (209, 426))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "13.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "13.12.2021":
                         if self.opened23 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened23 = True
                             self.lid_23 = None
-                            self.opened23 = True
                     else:
                         if self.sound_lock23 is False:
                             if self.sounds_on:
@@ -1154,15 +1078,12 @@ class ChristmasCalendar:
             if self.lid24_x and self.lid24_y:
                 self.lid_24 = self.display.blit(self.lid24_hover_over, (313, 426))
                 if self.mouse_button_down:
-                    if self.what_time_is_it() == "5.12.2021":
-                        #Here will be a question
-                        #Think how would be the best way to implement the questions
+                    if self.time_teller() == "5.12.2021":
                         if self.opened24 is False:
                             if self.sounds_on:
                                 self.opening_sound.play()
                             self.opened24 = True
                             self.lid_24 = None
-                            self.opened24 = True
                     else:
                         if self.sound_lock24 is False:
                             if self.sounds_on:
@@ -1181,6 +1102,7 @@ class ChristmasCalendar:
         Funktion that loops over and over.
         Thus making the use of the calendar feel comfortable.
         """
+
         clock = pygame.time.Clock()
 
         while True:
@@ -1217,7 +1139,7 @@ class ChristmasCalendar:
 
         self.sound_management()
 
-        self.lids()
+        self.lid_management()
 
         self.display.blit(self.mouse, (self.x, self.y))
 
