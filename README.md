@@ -9,10 +9,53 @@ ChristmasCalendar is a Python project that uses Pygame library. Like the name su
 
 ## Tools and Libraries
 - [Pygame](https://www.pygame.org/docs/)
-- You can find required packets from Requirements.txt
+- You can find required packets from requirements.txt
 
 ## Setup
-- pip install -r Requirements.txt
+- Clone or fork the repository.
+
+- Install virtualenv if not already installed
+-> (pip install virtualenv)
+
+- Make an Virtual Environment
+-> (virtualenv env)
+
+- Access it
+-> (Windows -> .\env\Scripts\activate -> Mac source env/bin/activate)
+
+- Install requirements.txt
+-> (pip install -r requirements.txt)
+
+- Run
+-> (Go inside refactored folder and write python runner.py)
+
+## Calendar's structure
+```GAP
+- ├── env
+- ├── refactored
+- |   ├── app
+- |   |   ├── __init__.py
+- |   |   ├── data.py
+- |   |   ├── event_analyser.py
+- |   |   ├── file_management.py
+- |   |   ├── game_visualizer.py
+- |   |   ├── lid_management.py
+- |   |   ├── roller.py
+- |   |   ├── sound_and_music_management.py
+- |   |   ├── time_management.py
+- |   ├── images
+- |   ├── music
+- |   ├── sounds
+- |   ├── __init__.py
+- |   ├── runner.py
+- ├── testing
+- ├── unrefactored
+- ├── .qitignore
+- ├── picture_of_the_game.jpg
+- ├── picture_of_the_game.png
+- ├── README.md
+- ├── requirements
+```
 
 ## Demonstration
 
